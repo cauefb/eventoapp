@@ -1,10 +1,33 @@
 package com.eventoapp.eventoapp.models;
 
-public class Evento {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name= "evento")
+public class Evento implements Serializable {
+
+	private static final long seralVersiondUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "codigo")
+	private long codigo;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "local")
 	private String local;
+	@Column(name = "data")
 	private String data;
+	@Column(name = "horario")
 	private String horario;
+	public long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -29,4 +52,6 @@ public class Evento {
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
+
+
 }
